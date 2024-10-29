@@ -8,5 +8,9 @@ a_new_string = 'My name is Ben'
 print('Hello World')
 print(a_new_string)
 
-
-print(2**8)
+print(2)
+print(2+3) # addition
+print(2-3) # subtraction
+print(2*3) # multiplication
+print(2/3) # division
+print(2**3) # exponentials
