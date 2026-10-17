@@ -3,6 +3,6 @@
 
 ## [Lists](https://github.com/Bcliffwm/data_analytics_learning/tree/main/week2/lists)
 
-## Scope
+## [Scopes](https://github.com/Bcliffwm/data_analytics_learning/tree/main/week2/scopes)
 
 ## [Classes](https://github.com/Bcliffwm/data_analytics_learning/tree/main/week2/classes)
