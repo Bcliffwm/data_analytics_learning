@@ -7,18 +7,14 @@ BASE_DIR = Path(__file__).parent
 INPUT_FILE = BASE_DIR / 'inputs' / 'test_file.txt'
 OUTPUT_FILE = BASE_DIR / 'outputs' / 'users.txt'
 
-
 def get_user_name():
     # getpass() reads from the terminal with echo turned off, so nothing the
     # user types is displayed.
-    #
-    # Python 3.14 added echo_char to show a mask instead of showing nothing.
-    # Older versions reject that keyword, so fall back to fully hidden input.
     try:
-        return getpass.getpass("Enter your name: ", echo_char="*")
-    except TypeError:
         return getpass.getpass("Enter your name: ")
-
+    except:
+        print('No name entered or name entering failed')
+        return None
 
 def save_user_name(users_name: str):
     # 'a' (append) mode adds to the end of the file instead of replacing it,
