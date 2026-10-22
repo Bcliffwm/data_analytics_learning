@@ -36,7 +36,12 @@ def save_user_name(users_name: str):
     print(f"Appended to {OUTPUT_FILE}")
     return True
 
+def list_users():
+    user_list = []
+    with open(OUTPUT_FILE, 'r') as f:
+        lines = f.readlines()
 
+    return lines
 def greet_user():
     print(f"Reading from {INPUT_FILE}")
 
@@ -50,14 +55,41 @@ def greet_user():
     for line in lines:
         print(line.rstrip())
 
+def menu():
+    user_choice = ''
+    while user_choice not in ['1', 'q', 'Q']:
+        user_choice = getpass.getpass(prompt='Please enter an option:\n1) Enter name in log\n2) List users\nq) Quit program\n')
+        if user_choice == 'q':
+            break
+    return user_choice
+
 
 def main():
-    greet_user()
 
-    users_name = get_user_name()
-    print(f"Hello, {users_name}! Welcome!")
+    keep_on = True # Flag for controlling execution of program
+    greet_user() # keeping this call outside loop as it is only needed once
 
-    save_user_name(users_name)
+    while keep_on: # using while loop to continue running program until exited by user
+        user_choice = '' # resetting user_choice for handling logic options
+        
+        user_choice = menu()
+        if user_choice == '1':
+            users_name = get_user_name()
+            print(f"Hello, {users_name}! Welcome!")
+            
+            save_user_name(users_name)
+        
+        elif user_choice == '2':
+            user_list = ''
+            user_list = list_users()
+            print(user_list)
+
+        elif user_choice == 'q' or user_choice == 'Q':
+            print('Exiting program')
+            keep_on = False
+        else:
+            print('Error with program. Exiting with errors...')
+            keep_on = False
 
     return True
 
